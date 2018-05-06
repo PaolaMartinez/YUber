@@ -1,17 +1,38 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar transparent>
     <ion-title>
-      Contact
+      Solicitar Carreras
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+<ion-content padding id="contact">
+<h1> Solicita un nuevo viaje </h1>
+<div> Fecha </div>
+<ion-list>
+<ion-item>
+  <ion-label>Fecha de Salida:</ion-label>
+  <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="event.month"></ion-datetime>
+</ion-item>
+
+<ion-item>
+  <ion-label>Hora de Salida:</ion-label>
+  <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
+</ion-item>
+</ion-list>
+<div> Recorrido: </div>
+<ion-list>
+
+  <ion-item>
+    <ion-input type="text" placeholder ="Origen"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="text" placeholder="Destino "></ion-input>
+  </ion-item>
+
+</ion-list>
+
+<button ion-button full color="lightprimary" (click)="solicitarViaje()" round>Solicitar Viaje</button>
+
 </ion-content>

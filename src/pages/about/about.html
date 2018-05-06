@@ -1,11 +1,50 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar transparent>
     <ion-title>
-      About
+      Ofrecer Carreras
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding id="about">
+  <h1> Complete los datos del nuevo viaje </h1>
+
+  <div> Fecha </div>
+<ion-list>
+  <ion-item>
+    <ion-label>Fecha de Salida:</ion-label>
+    <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="event.month"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Hora de Salida:</ion-label>
+    <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
+  </ion-item>
+</ion-list>
+  <div> Recorrido: </div>
+  <ion-list>
+
+    <ion-item>
+      <ion-input type="text" placeholder ="Origen"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Destino "></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div> Precio del viaje y Asientos disponibles:</div>
+  <ion-list>
+  <ion-item>
+    <ion-input type="text" placeholder ="Valor por Persona"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" placeholder ="Asientos Disponibles"></ion-input>
+  </ion-item>
+</ion-list>
+
+
+<button ion-button full color="lightprimary" (click)="ofrecerViaje()" round>Ofrecer Viaje</button>
 
 </ion-content>

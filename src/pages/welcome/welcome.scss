@@ -1,0 +1,22 @@
+page-welcome {
+  #welcome{
+    @include linear-gradient(left,$green-and-blue);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+      h1{
+          font-size: 40px;
+          margin-top:30px;
+      }
+      div{
+        font-size: 11px;
+      }
+      .marginTop{
+          margin-top:50px;
+      }
+      .logo{
+          height: 100px;
+          margin-left:100px;
+      }
+  }
+}
