@@ -6,7 +6,7 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 
-import { AboutPage } from '../pages/about/about';
+import { OffersPage } from '../pages/offers/offers';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -20,11 +20,12 @@ import { SignaturePadModule } from 'angular2-signaturepad';
 
 import { HttpClientModule } from '@angular/common/http';
 import { RestProvider } from '../providers/rest/rest';
+import { AddofferServiceProvider } from '../providers/addoffer-service/addoffer-service';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
+    OffersPage,
     ContactPage,
     HomePage,
     WelcomePage,
@@ -40,7 +41,7 @@ import { RestProvider } from '../providers/rest/rest';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
+    OffersPage,
     ContactPage,
     HomePage,
     WelcomePage,
@@ -52,7 +53,8 @@ import { RestProvider } from '../providers/rest/rest';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RestProvider
+    RestProvider,
+    AddofferServiceProvider
   ]
 })
 export class AppModule {}

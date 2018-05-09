@@ -28,9 +28,9 @@ export class SignupPage {
     this.navCtrl.push(TabsPage);
   }
   public notify(){
-   if (this.isToggled = true){
+   if (this.isToggled == true){
    this.isToggled = true; }
-       else if (this.isToggled = false){
+       else if (this.isToggled == false){
       this.isToggled= false; }
  }
 }
