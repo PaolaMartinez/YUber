@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, App } from 'ionic-angular';
-
+import { SeeOffersPage } from '../see-offers/see-offers';
 import { AddofferServiceProvider } from '../../providers/addoffer-service/addoffer-service';
+import { SeeSolicitudesPage } from '../see-solicitudes/see-solicitudes';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -18,6 +20,13 @@ export class HomePage {
     const root = this.app.getRootNav();
     root.popToRoot();
     }
+  seeOffers(){
+    this.navCtrl.push(SeeOffersPage);
+    }
+
+  seeSolicitudes(){
+      this.navCtrl.push(SeeSolicitudesPage);
+      }
 
     
     

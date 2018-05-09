@@ -7,32 +7,45 @@
 </ion-header>
 
 <ion-content padding id="contact">
+    <form [formGroup]="onAddForm">
 <h1> Solicita un nuevo viaje </h1>
 <div> Fecha </div>
 <ion-list>
 <ion-item>
-  <ion-label>Fecha de Salida:</ion-label>
-  <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="event.month"></ion-datetime>
+  <ion-label>Fecha y Hora de Salida:</ion-label>
+  <ion-datetime displayFormat="MM-DD-YYYY" [(ngModel)]="event.month" formControlName="fecha_hora"></ion-datetime>
+  <p ion-text color="danger" class="text-12x has-error" *ngIf="onAddForm.get('fecha_hora').touched && onAddForm.get('fecha_hora').hasError('required')">El campo es requerido</p>
 </ion-item>
 
-<ion-item>
-  <ion-label>Hora de Salida:</ion-label>
-  <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
-</ion-item>
 </ion-list>
 <div> Recorrido: </div>
-<ion-list>
+<ion-list> 
 
   <ion-item>
-    <ion-input type="text" placeholder ="Origen"></ion-input>
+    <ion-input type="text" formControlName="origen" placeholder ="Origen"></ion-input>
+    <p ion-text color="danger" class="text-12x has-error" *ngIf="onAddForm.get('origen').touched && onAddForm.get('origen').hasError('required')">El campo es requerido</p>
   </ion-item>
 
   <ion-item>
-    <ion-input type="text" placeholder="Destino "></ion-input>
+    <ion-input type="text" formControlName="destino" placeholder="Destino "></ion-input>
+    <p ion-text color="danger" class="text-12x has-error" *ngIf="onAddForm.get('destino').touched && onAddForm.get('destino').hasError('required')">El campo es requerido</p>
   </ion-item>
 
+  <div> Precio Que Pagaría:</div>
+  <ion-list>
+  <ion-item>
+    <ion-input type="number" formControlName="precio_unitario" placeholder ="Valor por Persona"></ion-input>
+    <p ion-text color="danger" class="text-12x has-error" *ngIf="onAddForm.get('precio_unitario').touched && onAddForm.get('precio_unitario').hasError('required')">El campo es requerido</p>
+  </ion-item>
+  <div> Asientos Que Necesita:</div>
+  <ion-item>
+    <ion-input type="number" formControlName="puestos" placeholder ="Asientos Disponibles"></ion-input>
+    <p ion-text color="danger" class="text-12x has-error" *ngIf="onAddForm.get('puestos').touched && onAddForm.get('puestos').hasError('required')">El campo es requerido</p>
+  </ion-item>
 </ion-list>
 
+</ion-list>
+</form>
 <button ion-button full color="lightprimary" (click)="solicitarViaje()" round>Solicitar Viaje</button>
 
 </ion-content>
