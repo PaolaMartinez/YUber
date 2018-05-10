@@ -10,6 +10,7 @@ import { OffersPage } from '../pages/offers/offers';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { OfertasPage } from '../pages/ofertas/ofertas'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -31,7 +32,8 @@ import { AddofferServiceProvider } from '../providers/addoffer-service/addoffer-
     WelcomePage,
     LoginPage,
     SignupPage,
-    TabsPage
+    TabsPage,
+    OfertasPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { AddofferServiceProvider } from '../providers/addoffer-service/addoffer-
     WelcomePage,
     LoginPage,
     SignupPage,
-    TabsPage
+    TabsPage,
+    OfertasPage
   ],
   providers: [
     StatusBar,

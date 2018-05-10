@@ -1,0 +1,31 @@
+<!--
+  Generated template for the OfertasPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Ofertas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding id="ofertas">
+  <ion-card>
+    <ion-item *ngFor="let offer of offers">
+      <ion-card-content>
+        <ion-card-header>{{offer.origen}} - {{offer.destino}}</ion-card-header>
+        <p>{{offer.Fecha_hora}}</p>
+        <p>{{offer.origen}}</p>
+        <p>{{offer.destino}}</p>
+        <p>{{offer.precio_unitario}}</p>
+        <button ion-button full >Asientos disponibles: {{offer.puestos}}</button>
+      
+      </ion-card-content>
+    </ion-item>
+
+  </ion-card>
+</ion-content>
