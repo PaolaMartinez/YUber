@@ -5,7 +5,6 @@ import { MyApp } from './app.component';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
-import { SeeOffersPage } from '../pages/see-offers/see-offers'
 import { OffersPage } from '../pages/offers/offers';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -13,7 +12,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { SeeSolicitudesPage } from '../pages/see-solicitudes/see-solicitudes';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 
 
 //HttpClient
@@ -32,8 +30,7 @@ import { AddofferServiceProvider } from '../providers/addoffer-service/addoffer-
     LoginPage,
     SignupPage,
     TabsPage,
-    SeeOffersPage,
-    SeeSolicitudesPage
+    SeeSolicitudesPage,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +47,6 @@ import { AddofferServiceProvider } from '../providers/addoffer-service/addoffer-
     LoginPage,
     SignupPage,
     TabsPage,
-    SeeOffersPage,
     SeeSolicitudesPage
   ],
   providers: [
