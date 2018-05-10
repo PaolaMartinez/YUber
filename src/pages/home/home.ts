@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, App } from 'ionic-angular';
-import { SeeOffersPage } from '../see-offers/see-offers';
+import { OfertasPage } from '../ofertas/ofertas';
 import { AddofferServiceProvider } from '../../providers/addoffer-service/addoffer-service';
 import { SeeSolicitudesPage } from '../see-solicitudes/see-solicitudes';
 
@@ -12,7 +12,7 @@ export class HomePage {
 
   offers: any;
   constructor(public navCtrl: NavController, public app: App, public AddOfferProvider: AddofferServiceProvider) {
-    this.getOffers();
+
   }
 
   logout(){
@@ -20,8 +20,8 @@ export class HomePage {
     const root = this.app.getRootNav();
     root.popToRoot();
     }
-  seeOffers(){
-    this.navCtrl.push(SeeOffersPage);
+  moveToOfertas(){
+    this.navCtrl.push(OfertasPage);
     }
 
   seeSolicitudes(){
