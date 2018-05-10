@@ -7,17 +7,8 @@
 <ion-content padding id='home'>
   <h2 text-center>Welcome to YT CarPooling Project</h2>
   <div> Actualizaciones Recientes</div>
-  <ion-list inset>
-    <ion-item *ngFor="let offer of offers">
-      <h2>{{offer.origen}}</h2>
-      <p>{{offer.Fecha_hora}}</p>
-      <p>{{offer.origen}}</p>
-      <p>{{offer.destino}}</p>
-      <p>{{offer.precio_unitario}}</p>
-      <p>{{offer.puestos}}</p>
-    </ion-item>
-  </ion-list>
 
+  <button ion button color="primary" (click)=moveToOfertas()>Ofertas</button>
   <button ion-button color="primary" (click)="logout()">Logout</button>
 
 </ion-content>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, App } from 'ionic-angular';
+import { OfertasPage } from '../ofertas/ofertas';
 
-import { AddofferServiceProvider } from '../../providers/addoffer-service/addoffer-service';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -9,8 +9,12 @@ import { AddofferServiceProvider } from '../../providers/addoffer-service/addoff
 export class HomePage {
 
   offers: any;
-  constructor(public navCtrl: NavController, public app: App, public AddOfferProvider: AddofferServiceProvider) {
-    this.getOffers();
+  constructor(public navCtrl: NavController, public app: App) {
+    
+  }
+
+  moveToOfertas(){
+    this.navCtrl.push(OfertasPage)
   }
 
   logout(){
@@ -20,13 +24,4 @@ export class HomePage {
     }
 
     
-    
-    getOffers(){
-      this.AddOfferProvider.getOffers()
-      .then(data => {
-        this.offers = data;
-        console.log(this.offers);
-      })
-    }
-
 }
