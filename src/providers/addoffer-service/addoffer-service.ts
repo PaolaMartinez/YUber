@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { AlertController,LoadingController } from 'ionic-angular';
 /*
   Generated class for the AddofferServiceProvider provider.
 
@@ -10,9 +10,11 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AddofferServiceProvider {
 
-  apiUrl = 'https://127.0.0.1:3000/api/v1';
+  apiUrl = 'http://localhost:3000/api/v1';
 
-  constructor(public http: HttpClient) {
+  constructor(private http: HttpClient,
+    public alertCtrl: AlertController,
+    private loadingController: LoadingController) {
     console.log('Hello AddofferServiceProvider Provider');
   }
 
@@ -26,16 +28,48 @@ export class AddofferServiceProvider {
     });
   }
 
-
+  getSol(){
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl+'/SolViajes').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  
+  }
 
   addOffer(data){
     return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl+'/viajes', JSON.stringify(data))
+      this.http.post(this.apiUrl+'/Viajes', JSON.stringify(data))
       .subscribe(res => {
         resolve(res);
       }, (err) => {
         reject(err);
       });
     });
+  }
+  
+  addSolit(result){
+    return new Promise(resolve => {
+      this.http.post(this.apiUrl + '/SolViajes',result).subscribe(
+        data=>{
+          resolve(data)
+        },err =>{
+          console.log(err);
+          if(!err.ok){
+            this.showAlert();
+          }
+        }
+      )
+    })
+  }
+  showAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'No Internet!',
+      subTitle: 'Please connect!',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 }

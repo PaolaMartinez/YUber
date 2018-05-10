@@ -1,16 +1,27 @@
 <ion-header>
-  <ion-navbar transparent>
+  <ion-navbar >
     <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding id='home'>
+<ion-content padding id='home' class="card-background-page">
   <h2 text-center>Welcome to YT CarPooling Project</h2>
+  <ion-card (click)="seeOffers()">
+    <img src="assets/imgs/Ofrecer.png"/>
+    <div class="card-title">Ver Ofertas de Viajes</div>
+  </ion-card>
+
+  <ion-card (click)="seeSolicitudes()">
+    <img src="assets/imgs/Solicite.png"/>
+    <div class="card-title"  (click)="login()">Ver Solicitudes de Viajes</div>
+  </ion-card>
+  
+  
   <div> Actualizaciones Recientes</div>
   <ion-list inset>
     <ion-item *ngFor="let offer of offers">
-      <h2>{{offer.origen}}</h2>
-      <p>{{offer.Fecha_hora}}</p>
+      <h2>{{offer.origen}} - {{offer.destino}}</h2>
+      <p>{{offer.fecha_hora}}</p>
       <p>{{offer.origen}}</p>
       <p>{{offer.destino}}</p>
       <p>{{offer.precio_unitario}}</p>

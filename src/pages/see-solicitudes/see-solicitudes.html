@@ -1,0 +1,29 @@
+<!--
+  Generated template for the SeeSolicitudesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Solicitudes de Viajes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding id='solicitudes'>
+
+  <div> Actualizaciones Recientes</div>
+  <ion-list inset>
+    <ion-item *ngFor="let offer of offers">
+      <h2>{{offer.origen}} - {{offer.destino}}</h2>
+      <p>{{offer.fecha_hora}}</p>
+      <p>{{offer.origen}}</p>
+      <p>{{offer.destino}}</p>
+      <p>{{offer.precio_unitario}}</p>
+      <p>{{offer.puestos}}</p>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>
