@@ -48,6 +48,7 @@ export class OffersPage {
       id_viaje: [this.id_viaje]
     })
   }
+
   ofrecerViaje(){
     this.loading= this.loadingController.create({
       content : 'Publicando',
@@ -64,6 +65,7 @@ export class OffersPage {
     })
   }
   
+
   presentToastr(){
     let toast = this.toastCtrl.create({
       message: 'Error al ofrecer viaje',

@@ -14,18 +14,19 @@
 
 
 <ion-content padding id="ofertas">
-    <ion-card (click)=doPrompt()>
-      <ion-item *ngFor="let offer of offers">
+    <ion-item >
+     
+      <ion-card *ngFor="let offer of offers; let i=index" (click)=doPrompt(i)>
         <ion-card-content>
-          <ion-card-header>{{offer.origen}} - {{offer.destino}}</ion-card-header>
-            <p>{{offer.Fecha_hora}}</p>
-            <p>{{offer.origen}}</p>
-            <p>{{offer.destino}}</p>
-            <p>{{offer.precio_unitario}}</p>
-            <p>{{offer.puestos}}</p>              
+          <ion-card-header>Viaje {{offer.origen}} - {{offer.destino}}</ion-card-header>
+            <p>Fecha y hora: {{offer.Fecha_hora}}</p>
+            <p>Origen: {{offer.origen}}</p>
+            <p>Destino: {{offer.destino}}</p>
+            <p>Precio por persona: {{offer.precio_unitario}}</p>
+            <p>Asientos disponibles: {{offer.puestos}}</p>              
         </ion-card-content>
-      </ion-item>
         
     </ion-card>
-
+  </ion-item>
+     
 </ion-content>

@@ -67,6 +67,22 @@ export class AddofferServiceProvider {
       )
     })
   }
+
+  updateViaje(resultado, cantidad: number){
+    return new Promise(resolve => {
+      this.http.post(this.apiUrl+'/viajes/'+ cantidad.toString(), resultado).subscribe(
+        data=>{
+          resolve(data)
+        },err =>{
+          console.log(err);
+          if(!err.ok){
+            this.showAlert();
+          }
+        }
+      )
+    })
+
+  }
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'No Internet!',
