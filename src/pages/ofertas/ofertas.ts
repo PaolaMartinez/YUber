@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { AddofferServiceProvider } from '../../providers/addoffer-service/addoffer-service';
 
+//ALERTA
+import { AlertController } from 'ionic-angular';
 /**
  * Generated class for the OfertasPage page.
  *
@@ -18,7 +20,8 @@ export class OfertasPage {
 
   offers: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public AddOfferProvider: AddofferServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public AddOfferProvider: AddofferServiceProvider,
+              public alertCtrl: AlertController) {
 
     this.getOffers();
   
@@ -35,6 +38,35 @@ export class OfertasPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OfertasPage');
+  }
+
+  doPrompt(){
+    let prompt = this.alertCtrl.create({
+      title: 'Aceptar viaje',
+      message: "Ingrese el número de asientos que desea",
+      inputs: [
+        {
+          name: 'asientos',
+          placeholder: 'Ingrese un número',
+          type: 'number'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Aceptar',
+          handler: data => {
+            console.log('Se ha hecho click en Aceptar')
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 
 }

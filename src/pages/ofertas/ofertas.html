@@ -14,7 +14,7 @@
 
 
 <ion-content padding id="ofertas">
-    <ion-card>
+    <ion-card (click)=doPrompt()>
       <ion-item *ngFor="let offer of offers">
         <ion-card-content>
           <ion-card-header>{{offer.origen}} - {{offer.destino}}</ion-card-header>
@@ -22,8 +22,7 @@
             <p>{{offer.origen}}</p>
             <p>{{offer.destino}}</p>
             <p>{{offer.precio_unitario}}</p>
-            <button ion-button full >Asientos disponibles: {{offer.puestos}}</button>
-              
+            <p>{{offer.puestos}}</p>              
         </ion-card-content>
       </ion-item>
         

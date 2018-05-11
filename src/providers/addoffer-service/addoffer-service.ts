@@ -39,15 +39,18 @@ export class AddofferServiceProvider {
   
   }
 
-  addOffer(data){
+  addOffer(result){
     return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl+'/Viajes', JSON.stringify(data))
-      .subscribe(res => {
-        resolve(res);
-      }, (err) => {
-        reject(err);
-      });
-    });
+      this.http.post(this.apiUrl+'/viajes',result).subscribe(
+        data => {
+          resolve(data)
+        }, err => {
+          console.log(err);
+          if(!err.ok){
+            this.showAlert();
+          }
+        })
+    })
   }
   
   addSolit(result){
