@@ -18,13 +18,16 @@ page-login {
     margin-bottom: 1px;
     .label {
       width: 10%;
-      color: rgba(0, 0, 0, 0.6);
+      color: #fff;
       font-size: 1.2em;
     }
   }
   .marginTop{
       margin-top:-10px;
     }
+  .placeholder{
+      color: #fff;
+  }
   .logo{
       height: 100px;
       margin-left:110px;

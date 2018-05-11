@@ -4,21 +4,30 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding id='home' class="card-background-page">
   <h2 text-center>Welcome to YT CarPooling Project</h2>
+
+  
   <ion-card (click)="moveToOfertas()">
-    <img src="assets/imgs/Ofrecer.png"/>
-    <div class="card-title">Ver Ofertas de Viajes</div>
-  </ion-card>
+
+     <!--  <img src= ion-icon/> -->
+  
+      <ion-card-content>
+        <ion-card-title>
+          Ver Ofertas de Viajes
+        </ion-card-title>
+      </ion-card-content>
+</ion-card>
 
   <ion-card (click)="seeSolicitudes()">
     <img src="assets/imgs/Solicite.png"/>
-    <div class="card-title"  (click)="login()">Ver Solicitudes de Viajes</div>
+    <div class="card-title" >Ver Solicitudes de Viajes</div>
   </ion-card>
   
   
   <div> Actualizaciones Recientes</div>
 
-  <button ion-button color="primary" (click)="logout()">Logout</button>
+  <button ion-button full color="primary" (click)="logout()" round>Logout</button>
 
 </ion-content>
