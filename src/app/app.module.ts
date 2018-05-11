@@ -13,7 +13,7 @@ import { SeeSolicitudesPage } from '../pages/see-solicitudes/see-solicitudes';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OfertasPage } from '../pages/ofertas/ofertas';
-
+import { SignupcarPage } from '../pages/signupcar/signupcar';
 //HttpClient
 
 import { HttpClientModule } from '@angular/common/http';
@@ -31,7 +31,8 @@ import { AddofferServiceProvider } from '../providers/addoffer-service/addoffer-
     SignupPage,
     TabsPage,
     SeeSolicitudesPage,
-    OfertasPage
+    OfertasPage,
+    SignupcarPage,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +50,8 @@ import { AddofferServiceProvider } from '../providers/addoffer-service/addoffer-
     SignupPage,
     TabsPage,
     SeeSolicitudesPage,
-    OfertasPage
+    OfertasPage,
+    SignupcarPage
   ],
   providers: [
     StatusBar,

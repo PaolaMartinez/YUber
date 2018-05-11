@@ -9,7 +9,7 @@ import { AlertController,LoadingController } from 'ionic-angular';
 */
 @Injectable()
 export class AddofferServiceProvider {
-
+  loading: any;
   apiUrl = 'http://localhost:3000/api/v1';
 
   constructor(private http: HttpClient,
@@ -28,7 +28,7 @@ export class AddofferServiceProvider {
     });
   }
 
-  getSol(){
+  getOffers1(){
     return new Promise(resolve => {
       this.http.get(this.apiUrl+'/SolViajes').subscribe(data => {
         resolve(data);
@@ -36,8 +36,34 @@ export class AddofferServiceProvider {
         console.log(err);
       });
     });
-  
   }
+
+  getSol(){
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl+'/AcepViajes').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+ 
+      aceptViaje(result){
+          return new Promise(resolve => {
+            this.http.post(this.apiUrl+'/SolViajesAcep',result).subscribe(
+              data=>{
+                resolve(data)
+                console.log(data);
+              },err =>{
+                console.log(err);
+                if(!err.ok){
+                  this.showAlert();
+                }
+              }
+            )
+          })
+        }  
+  
 
   addOffer(result){
     return new Promise((resolve, reject) => {
@@ -55,17 +81,17 @@ export class AddofferServiceProvider {
   
   addSolit(result){
     return new Promise(resolve => {
-      this.http.post(this.apiUrl + '/SolViajes',result).subscribe(
-        data=>{
-          resolve(data)
-        },err =>{
-          console.log(err);
-          if(!err.ok){
-            this.showAlert();
-          }
-        }
-      )
-    })
+      this.http.post(this.apiUrl + '/SolViajes', result).subscribe(
+                data=>{
+                  resolve(data)
+                },err =>{
+                  console.log(err);
+                  if(!err.ok){
+                    this.showAlert();
+                  }
+                }
+              )
+            })
   }
 
   updateViaje(resultado, cantidad: number){
@@ -91,4 +117,72 @@ export class AddofferServiceProvider {
     });
     alert.present();
   }
+
+    creaUser(result){
+        return new Promise(resolve => {
+          this.http.post(this.apiUrl + '/usuario', result).subscribe(
+            data=>{
+              resolve(data)
+            },err =>{
+              console.log(err);
+              if(!err.ok){
+                this.showAlert();
+              }
+            }
+          )
+        })
+      }
+        creaUserCC(result){
+            return new Promise(resolve => {
+              this.http.post(this.apiUrl + '/usuarioCC', result).subscribe(
+                data=>{
+                  resolve(data)
+                },err =>{
+                  console.log(err);
+                  if(!err.ok){
+                    this.showAlert();
+                  }
+                }
+              )
+            })
+          }
+          loginP(result) {
+                this.loading= this.loadingController.create({
+                  content : 'Accediendo',
+                  duration: 500
+                });
+                this.loading.present();
+                return new Promise(resolve => {
+                  this.http.get(this.apiUrl + '/login', result).subscribe(
+                    data=>{
+                      resolve(data)
+                      console.log(data);
+                    },err =>{
+                      console.log(err);
+                      if(!err.ok){
+                        console.log("error");
+                        this.showAlert();
+                      }
+                    }
+                  )
+                })
+              
+            }
+
+          creaUserCar(result){
+                  return new Promise(resolve => {
+                  this.http.post(this.apiUrl + '/usuarioCar', result).subscribe(
+                    data => {
+                      resolve(data)
+                    }, err => {
+                      console.log(err);
+                      if(!err.ok){
+                        this.showAlert();
+                      }
+                    }
+                  )
+                })
+              }
+
+
 }

@@ -14,18 +14,19 @@
 
 
 <ion-content padding id="login">
+    <form [formGroup] = "onLoginForm">
   <ion-list>
 
     <ion-item>
-      <ion-input type="text" placeholder ="Username" color="dark"></ion-input>
+        <ion-input type="text" formControlName="nickname" placeholder ="Username"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input type="password" placeholder="Password" color="dark"></ion-input>
+        <ion-input type="password" formControlName="password" placeholder="Password"></ion-input>
     </ion-item>
 
   </ion-list>
-
+    </form>
   <div padding>
     <button ion-button full color= 'primary' class='marginTop' (click)="login()" round>Sign In</button>
   </div>
