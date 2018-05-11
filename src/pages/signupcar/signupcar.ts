@@ -4,12 +4,20 @@ import { NavController, NavParams, ToastController, LoadingController } from 'io
 import { AddofferServiceProvider } from '../../providers/addoffer-service/addoffer-service';
 import moment from 'moment';
 import { Http } from '@angular/http';
+import {TabsPage} from '../tabs/tabs';
+
+/**
+ * Generated class for the SignupcarPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @Component({
-  selector: 'page-contact',
-  templateUrl: 'contact.html'
+  selector: 'page-signupcar',
+  templateUrl: 'signupcar.html',
 })
-export class ContactPage {
+export class SignupcarPage {
   myDate: String = moment().format();
   loading : any;
   id_viaje : number;
@@ -20,36 +28,37 @@ export class ContactPage {
  todo:any = {} 
  public onAddForm: FormGroup;
   constructor(public addofferServiceProvider: AddofferServiceProvider , public toastCtrl: ToastController, private loadingController: LoadingController, private _fb: FormBuilder, public navCtrl: NavController, public navParams: NavParams) {
-    this.id_viaje = this.navParams.get('id_viaje');
-    console.log(this.id_viaje);
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SignupcarPage');
   }
   ngOnInit() {
     console.log(this.myDate)
     this.onAddForm = this._fb.group({
-      fecha_hora: ['', Validators.compose([
+      nickname: ['', Validators.compose([
         Validators.required
       ])],
-      origen: ['', Validators.compose([
+      matricula: ['', Validators.compose([
         Validators.required
       ])],
-      destino: ['', Validators.compose([
+      marca: ['', Validators.compose([
         Validators.required
       ])],
-      precio_unitario: ['', Validators.compose([
+      color: ['', Validators.compose([
         Validators.required
       ])],
-      puestos: ['', Validators.compose([
+      foto_car: ['', Validators.compose([
         Validators.required
       ])],
-      id_viaje: [this.id_viaje]
     })
   }
-  solicitarViaje(){
+  signupcar(){
     this.loading= this.loadingController.create({
-      content : 'Publicando',
+      content : 'Creando Usuario',
     });
       this.loading.present();
-    this.addofferServiceProvider.addSolit(this.onAddForm.value).then((result) => {
+    this.addofferServiceProvider.creaUserCar(this.onAddForm.value).then((result) => {
       this.loading.dismiss();
       this.presentToastrc();
     }, (err) => {
@@ -57,7 +66,8 @@ export class ContactPage {
       this.presentToastr()
       this.loading.dismiss();
         })
-        
+       
+    this.navCtrl.push(TabsPage);
   }
   presentToastr() {
     let toast = this.toastCtrl.create({

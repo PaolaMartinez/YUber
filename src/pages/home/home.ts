@@ -3,6 +3,7 @@ import { NavController, App } from 'ionic-angular';
 import { SeeOffersPage } from '../see-offers/see-offers';
 import { AddofferServiceProvider } from '../../providers/addoffer-service/addoffer-service';
 import { SeeSolicitudesPage } from '../see-solicitudes/see-solicitudes';
+import { WelcomePage } from '../welcome/welcome';
 
 @Component({
   selector: 'page-home',
@@ -17,8 +18,7 @@ export class HomePage {
 
   logout(){
     // Remove API token
-    const root = this.app.getRootNav();
-    root.popToRoot();
+    this.navCtrl.push(WelcomePage);
     }
   seeOffers(){
     this.navCtrl.push(SeeOffersPage);

@@ -13,7 +13,7 @@
 <ion-list>
 <ion-item>
   <ion-label>Fecha y Hora de Salida:</ion-label>
-  <ion-datetime displayFormat="MM-DD-YYYY" [(ngModel)]="event.month" formControlName="fecha_hora"></ion-datetime>
+  <ion-datetime displayFormat="MM-DD-YYYY HH:mm" [(ngModel)]="event.month" formControlName="fecha_hora"></ion-datetime>
   <p ion-text color="danger" class="text-12x has-error" *ngIf="onAddForm.get('fecha_hora').touched && onAddForm.get('fecha_hora').hasError('required')">El campo es requerido</p>
 </ion-item>
 

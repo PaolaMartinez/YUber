@@ -9,7 +9,7 @@ import { AlertController,LoadingController } from 'ionic-angular';
 */
 @Injectable()
 export class AddofferServiceProvider {
-
+  loading: any;
   apiUrl = 'http://localhost:3000/api/v1';
 
   constructor(private http: HttpClient,
@@ -20,7 +20,7 @@ export class AddofferServiceProvider {
 
   getOffers(){
     return new Promise(resolve => {
-      this.http.get(this.apiUrl+'/viajes').subscribe(data => {
+      this.http.get(this.apiUrl+'/SolViajes').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -30,7 +30,7 @@ export class AddofferServiceProvider {
 
   getSol(){
     return new Promise(resolve => {
-      this.http.get(this.apiUrl+'/SolViajes').subscribe(data => {
+      this.http.get(this.apiUrl+'/AcepViajes').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -49,10 +49,91 @@ export class AddofferServiceProvider {
       });
     });
   }
+
+  aceptViaje(result){
+    return new Promise(resolve => {
+      this.http.post(this.apiUrl+'/SolViajesAcep',result).subscribe(
+        data=>{
+          resolve(data)
+          console.log(data);
+        },err =>{
+          console.log(err);
+          if(!err.ok){
+            this.showAlert();
+          }
+        }
+      )
+    })
+  }
   
   addSolit(result){
     return new Promise(resolve => {
-      this.http.post(this.apiUrl + '/SolViajes',result).subscribe(
+      this.http.post(this.apiUrl + '/SolViajes', result).subscribe(
+        data=>{
+          resolve(data)
+        },err =>{
+          console.log(err);
+          if(!err.ok){
+            this.showAlert();
+          }
+        }
+      )
+    })
+  }
+  creaUser(result){
+    return new Promise(resolve => {
+      this.http.post(this.apiUrl + '/usuario', result).subscribe(
+        data=>{
+          resolve(data)
+        },err =>{
+          console.log(err);
+          if(!err.ok){
+            this.showAlert();
+          }
+        }
+      )
+    })
+  }
+  creaUserCC(result){
+    return new Promise(resolve => {
+      this.http.post(this.apiUrl + '/usuarioCC', result).subscribe(
+        data=>{
+          resolve(data)
+        },err =>{
+          console.log(err);
+          if(!err.ok){
+            this.showAlert();
+          }
+        }
+      )
+    })
+  }
+  
+  loginP(result) {
+    this.loading= this.loadingController.create({
+      content : 'Accediendo',
+      duration: 500
+    });
+    this.loading.present();
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl + '/login', result).subscribe(
+        data=>{
+          resolve(data)
+          console.log(data);
+        },err =>{
+          console.log(err);
+          if(!err.ok){
+            console.log("error");
+            this.showAlert();
+          }
+        }
+      )
+    })
+  
+  }
+  creaUserCar(result){
+    return new Promise(resolve => {
+      this.http.post(this.apiUrl + '/usuarioCar', result).subscribe(
         data=>{
           resolve(data)
         },err =>{
@@ -72,4 +153,5 @@ export class AddofferServiceProvider {
     });
     alert.present();
   }
+
 }

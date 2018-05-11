@@ -16,18 +16,6 @@
     <div class="card-title"  (click)="login()">Ver Solicitudes de Viajes</div>
   </ion-card>
   
-  
-  <div> Actualizaciones Recientes</div>
-  <ion-list inset>
-    <ion-item *ngFor="let offer of offers">
-      <h2>{{offer.origen}} - {{offer.destino}}</h2>
-      <p>{{offer.fecha_hora}}</p>
-      <p>{{offer.origen}}</p>
-      <p>{{offer.destino}}</p>
-      <p>{{offer.precio_unitario}}</p>
-      <p>{{offer.puestos}}</p>
-    </ion-item>
-  </ion-list>
 
   <button ion-button color="primary" (click)="logout()">Logout</button>
 

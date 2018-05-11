@@ -13,7 +13,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { SeeSolicitudesPage } from '../pages/see-solicitudes/see-solicitudes';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { SignupcarPage } from '../pages/signupcar/signupcar'
 
 
 //HttpClient
@@ -33,6 +33,7 @@ import { AddofferServiceProvider } from '../providers/addoffer-service/addoffer-
     SignupPage,
     TabsPage,
     SeeOffersPage,
+    SignupcarPage,
     SeeSolicitudesPage
   ],
   imports: [
@@ -51,6 +52,7 @@ import { AddofferServiceProvider } from '../providers/addoffer-service/addoffer-
     SignupPage,
     TabsPage,
     SeeOffersPage,
+    SignupcarPage,
     SeeSolicitudesPage
   ],
   providers: [
